@@ -21,6 +21,8 @@ for i in range(len(images)):
     print(images[i])
     # 画像ファイルを開く
     image = cv2.imread(images[i])
+    # 大きい画像の処理に時間がかかるので、リサイズ
+    image = cv2.resize(image,  dsize=None, fx=0.75 , fy=0.75)
     # QRコードを認識する
     qrDetector = cv2.QRCodeDetector()
     data, bbox, rectifiedImage = qrDetector.detectAndDecode(image)
